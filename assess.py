@@ -102,7 +102,7 @@ def klg_inference(path_to_images, output_dir, args, inference_device='cuda'):
     # load model checkpoint
     torch.serialization.add_safe_globals([MetaTensor])
 
-    checkpoint = torch.load(args.model_ckpt_f, weights_only=True, map_location=device)
+    checkpoint = torch.load(args.model_ckpt_f, weights_only=False, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
 
     ### Run inference on images ###

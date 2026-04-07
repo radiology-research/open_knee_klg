@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 import torch
 from ultralytics import YOLO
+from ultralytics.nn import tasks
 from pydicom import dcmread
 import skimage
 import numpy as np
@@ -80,9 +81,9 @@ def detect_knees(input_src, output_dest, mdl_weights='knee_yolo.pt', conf_thresh
         meta = {
             'filename': input_src,
             'timestampe': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            cls_id: cls_id,
-            label: labels,
-            conf: conf,
+            'cls_id': cls_id,
+            'label': label,
+            'conf': conf,
             'bbox_coords': coords.tolist()
         }
         # write metadata to a JSON file

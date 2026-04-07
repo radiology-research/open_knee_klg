@@ -19,7 +19,7 @@ def run_inference(input, output, verbose=False):
     os.makedirs(klg_output_dir, exist_ok=True)
 
     # Call the knee detection model
-    bbox_imgs, bbox_arrs = detect_knees(input_src=input, output_src=detect_output_dir)
+    bbox_imgs, bbox_arrs = detect_knees(input_src=input, output_dest=detect_output_dir)
     if verbose:
         print(f"Detected {len(bbox_imgs)} knees in the input DICOM file.")
         print(f"Bounding box coordinates for detected knees: {bbox_arrs}")
